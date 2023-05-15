@@ -1,0 +1,66 @@
+User Story 1:
+As a user, I want to be able to search for books by title to quickly find the book I want.
+
+Acceptance criteria:
+-There must be a search field in the user interface where the user can enter the book title.
+-The system must perform a search in the book database and display matching results.
+-The results should show the title, author and availability of each book.
+
+User Story 2:
+As a user, I want to be able to reserve books to ensure that they will be available when I need them.
+
+Acceptance criteria:
+-There must be a reserve button next to each book in the user interface.
+-The user must be able to click the reserve button to mark the book as reserved.
+-If the book is already reserved, the system must display a message indicating that the book is not available for reservation.
+-The system should keep a record of reservations made.
+
+User Story 3:
+As an administrator, I want to be able to update the availability of books so that customers always have up-to-date information.
+
+Acceptance criteria:
+-The administrator must have access to a special interface to manage books.
+-The administrator must be able to mark a book as available or unavailable.
+-If a book is marked as unavailable, users will not be able to reserve or purchase it.
+-The system must display the updated availability in the user interface.
+
+User Story 4:
+As a user, I want to be able to purchase books to have them in my possession.
+
+Acceptance criteria:
+-There must be a buy button next to each book in the user interface.
+-The user must be able to click the buy button to add the book to their shopping cart.
+-The system should calculate the total purchase and allow the user to complete the checkout process.
+-After purchase, the book should be marked as unavailable.
+
+User Story 5:
+As an administrator, I want to be able to add new books to the system to expand the bookstore collection.
+
+-Acceptance criteria:
+-The administrator must have access to a special interface to add new books.
+-The administrator must be able to enter information such as title, author, genre and availability of the book.
+-The system must add the new book to the database and display it in the user interface.
+
+
+User Story 6:
+As an administrator, I want to be able to remove books from the system if they are no longer available or not selling well.
+
+Acceptance criteria:
+-The administrator must have access to a special interface to manage books.
+-The administrator must be able to select a book and perform the deletion action.
+-Before deleting a book, the system must display a confirmation to avoid accidental deletions.
+-After deleting a book, it must be removed from the database and no longer available to users.
+
+User story 7:
+As a user, I want to be able to search for books by author to find all books by my favorite authors.
+
+Acceptance criteria:
+-There must be a search by author field in the user interface.
+-The user must be able to enter the author's name in the search field.
+-The system must perform a search in the book database and display results matching the author.
+-The results should show the title, author and availability of each book by the searched author.
+
+
+
+
+

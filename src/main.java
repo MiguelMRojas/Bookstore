@@ -1,3 +1,8 @@
+import main.LibreriaController;
+import main.LibreriaModel;
+import main.LibreriaView;
+import main.Libro;
+
 public class main {
     public static void main(String[] args) {
         // Crear el modelo
