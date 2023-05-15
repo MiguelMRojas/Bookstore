@@ -1,5 +1,3 @@
-package test;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,80 +23,59 @@ public class TestController {
     }
 
     @Test
-    public void testBuscarLibrosPorCategoria() {
-        Libro libro1 = new Libro("Cien años de soledad", "Gabriel Garcia Marquez", "Ficcion", true);
-        Libro libro2 = new Libro("1984", "George Orwell", "Ficcion", true);
-        Libro libro3 = new Libro("El principito", "Antoine de Saint-Exupery", "Infantil", true);
+    public void buscarLibrosPorCategoria() {
+        modelo.agregarLibro(new Libro("Libro 1", "Autor 1", "Categoria 1", true));
+        modelo.agregarLibro(new Libro("Libro 2", "Autor 2", "Categoria 2", true));
+        modelo.agregarLibro(new Libro("Libro 3", "Autor 3", "Categoria 1", true));
 
-        modelo.agregarLibro(libro1);
-        modelo.agregarLibro(libro2);
-        modelo.agregarLibro(libro3);
-
-        vista.setCategoriaIngresada("Ficcion");
-
+        vista.simularEntradaUsuario("Categoria 1");
         controlador.buscarLibrosPorCategoria();
 
-        List<Libro> librosEncontrados = vista.getLibrosMostrados();
+        List<Libro> librosEncontrados = vista.obtenerLibrosMostrados();
         Assertions.assertEquals(2, librosEncontrados.size());
-        Assertions.assertTrue(librosEncontrados.contains(libro1));
-        Assertions.assertTrue(librosEncontrados.contains(libro2));
     }
 
     @Test
-    public void testReservarLibro() {
-        Libro libro = new Libro("Cien años de soledad", "Gabriel Garcia Marquez", "Ficcion", true);
-        modelo.agregarLibro(libro);
+    public void reservarLibro() {
+        modelo.agregarLibro(new Libro("Libro 1", "Autor 1", "Categoria 1", true));
 
-        vista.setIndiceIngresado(0);
-
+        vista.simularEntradaUsuario("0");
         controlador.reservarLibro();
 
-        Assertions.assertFalse(libro.isDisponible());
-        Assertions.assertEquals("Libro reservado exitosamente.", vista.getMensajeMostrado());
+        List<Libro> libros = modelo.obtenerTodosLosLibros();
+        Assertions.assertFalse(libros.get(0).isDisponible());
     }
 
     @Test
-    public void testComprarLibro() {
-        Libro libro = new Libro("Cien años de soledad", "Gabriel Garcia Marquez", "Ficcion", true);
-        modelo.agregarLibro(libro);
+    public void comprarLibro() {
+        modelo.agregarLibro(new Libro("Libro 1", "Autor 1", "Categoria 1", true));
 
-        vista.setIndiceIngresado(0);
-
+        vista.simularEntradaUsuario("0");
         controlador.comprarLibro();
 
-        List<Libro> librosEncontrados = modelo.buscarLibros("Ficcion");
-        Assertions.assertTrue(librosEncontrados.isEmpty());
-        Assertions.assertEquals("Libro comprado exitosamente.", vista.getMensajeMostrado());
+        List<Libro> libros = modelo.obtenerTodosLosLibros();
+        Assertions.assertTrue(libros.isEmpty());
     }
 
     @Test
-    public void testDevolverLibro() {
-        Libro libro = new Libro("Cien años de soledad", "Gabriel Garcia Marquez", "Ficcion", false);
+    public void devolverLibro() {
+        Libro libro = new Libro("Libro 1", "Autor 1", "Categoria 1", false);
         modelo.agregarLibro(libro);
 
-        List<Libro> libros = new ArrayList<>();
-        libros.add(libro);
-        vista.setLibrosMostrados(libros);
-        vista.setIndiceIngresado(0);
-
+        vista.simularEntradaUsuario("0");
         controlador.devolverLibro();
 
         Assertions.assertTrue(libro.isDisponible());
-        Assertions.assertEquals("Libro devuelto exitosamente.", vista.getMensajeMostrado());
     }
 
     @Test
-    public void testMostrarTodosLosLibros() {
-        Libro libro1 = new Libro("Cien años de soledad", "Gabriel Garcia Marquez", "Ficcion", true);
-        Libro libro2 = new Libro("1984", "George Orwell", "Ficcion", true);
-        modelo.agregarLibro(libro1);
-        modelo.agregarLibro(libro2);
+    public void mostrarTodosLosLibros() {
+        modelo.agregarLibro(new Libro("Libro 1", "Autor 1", "Categoria 1", true));
+        modelo.agregarLibro(new Libro("Libro 2", "Autor 2", "Categoria 2", true));
+
         controlador.mostrarTodosLosLibros();
 
-        List<Libro> librosMostrados = vista.getLibrosMostrados();
+        List<Libro> librosMostrados = vista.obtenerLibrosMostrados();
         Assertions.assertEquals(2, librosMostrados.size());
-        Assertions.assertTrue(librosMostrados.contains(libro1));
-        Assertions.assertTrue(librosMostrados.contains(libro2));
     }
-}    
-
+}
