@@ -25,4 +25,4 @@ Select an option from the menu.
 Follow the prompts and provide the necessary information.
 View the results and messages displayed by the program
 
-![Diagrama UML](https://github.com/MiguelMRojas/ParcialFinalAN/blob/main/diagramaUML/DiagramaUML-Parcial-MiguelMendoza.pdf)
+![Diagrama UML](https://github.com/MiguelMRojas/ParcialFinalAN/blob/main/diagramaUML/DiagramUML.jpg)
