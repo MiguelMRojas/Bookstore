@@ -42,13 +42,13 @@ public class LibreriaController {
     }
     
 
-    private void buscarLibrosPorCategoria() {
+    public void buscarLibrosPorCategoria() {
         String categoria = vista.solicitarCategoria();
         List<Libro> librosEncontrados = modelo.buscarLibros(categoria);
         vista.mostrarLibros(librosEncontrados);
     }
 
-    private void reservarLibro() {
+    public void reservarLibro() {
         int indice = vista.solicitarIndice("Ingrese el índice del libro a reservar");
         boolean reservado = modelo.reservarLibro(indice);
         if (reservado) {
@@ -58,7 +58,7 @@ public class LibreriaController {
         }
     }
 
-    private void comprarLibro() {
+    public void comprarLibro() {
         int indice = vista.solicitarIndice("Ingrese el índice del libro a comprar");
         boolean comprado = modelo.comprarLibro(indice);
         if (comprado) {
@@ -68,7 +68,7 @@ public class LibreriaController {
         }
     }
 
-    private void devolverLibro() {
+    public void devolverLibro() {
         List<Libro> libros = modelo.obtenerTodosLosLibros();
         if (libros.isEmpty()) {
             vista.mostrarMensaje("No hay libros disponibles para devolver.");
@@ -90,7 +90,7 @@ public class LibreriaController {
         }
     }
     
-    private void mostrarTodosLosLibros() {
+    public void mostrarTodosLosLibros() {
         List<Libro> libros = modelo.obtenerTodosLosLibros();
         vista.mostrarLibros(libros);
     }

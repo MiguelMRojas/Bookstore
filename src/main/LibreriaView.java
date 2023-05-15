@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class LibreriaView {
     private Scanner scanner;
+    private List<Libro> librosMostrados;
 
     public LibreriaView() {
         scanner = new Scanner(System.in);
@@ -50,4 +51,14 @@ public class LibreriaView {
     public void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
     }
+    
+    public void simularEntradaUsuario(String entrada) {
+
+    }
+
+    public List<Libro> obtenerLibrosMostrados() {
+        return null;
+    }
+
+    
 }

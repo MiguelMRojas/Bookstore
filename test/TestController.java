@@ -7,8 +7,7 @@ import main.LibreriaModel;
 import main.LibreriaView;
 import main.Libro;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class TestController {
     private LibreriaModel modelo;
@@ -31,8 +30,7 @@ public class TestController {
         vista.simularEntradaUsuario("Categoria 1");
         controlador.buscarLibrosPorCategoria();
 
-        List<Libro> librosEncontrados = vista.obtenerLibrosMostrados();
-        Assertions.assertEquals(2, librosEncontrados.size());
+        Assertions.assertEquals(2, vista.obtenerLibrosMostrados().size());
     }
 
     @Test
@@ -42,8 +40,7 @@ public class TestController {
         vista.simularEntradaUsuario("0");
         controlador.reservarLibro();
 
-        List<Libro> libros = modelo.obtenerTodosLosLibros();
-        Assertions.assertFalse(libros.get(0).isDisponible());
+        Assertions.assertFalse(modelo.obtenerTodosLosLibros().get(0).isDisponible());
     }
 
     @Test
@@ -53,8 +50,7 @@ public class TestController {
         vista.simularEntradaUsuario("0");
         controlador.comprarLibro();
 
-        List<Libro> libros = modelo.obtenerTodosLosLibros();
-        Assertions.assertTrue(libros.isEmpty());
+        Assertions.assertTrue(modelo.obtenerTodosLosLibros().isEmpty());
     }
 
     @Test
@@ -75,7 +71,6 @@ public class TestController {
 
         controlador.mostrarTodosLosLibros();
 
-        List<Libro> librosMostrados = vista.obtenerLibrosMostrados();
-        Assertions.assertEquals(2, librosMostrados.size());
+        Assertions.assertEquals(2, vista.obtenerLibrosMostrados().size());
     }
 }
